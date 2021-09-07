@@ -26,6 +26,7 @@ services:
    - postgres
   ports: 
    - '3000:3000'
-  
+  volumes: 
+   - ./routes:/opt/app/routes
 volumes: 
  node-postgre-db:

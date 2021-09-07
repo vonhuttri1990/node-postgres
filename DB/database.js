@@ -9,6 +9,9 @@ const sequelize = new Sequelize(
                         dialect: 'postgres',
                         dialectOptions: {
                             ssl: process.env.DB_SSL == "true"
+                        },
+                        define: {
+                            timestamps: false
                         }
                     });
 
@@ -20,12 +23,6 @@ sequelize.authenticate()
     console.error('Unable to connect to the database', error)
 })
 const User = sequelize.define('users', {
-    // ID: {
-    //     type: Sequelize.DataTypes.INTEGER,
-    //     primaryKey: true,
-    //     autoIncrement: true
-
-    // },
     name: {
         type: Sequelize.STRING,
         allowNull: false
